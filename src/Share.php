@@ -220,6 +220,32 @@ class Share
         return $this;
     }
 
+     /**
+     * bsky share link
+     */
+    /**
+     * Bluesky share link
+     *
+     * @return $this
+     */
+    public function bsky()
+    {
+        // if no custom title/text was passed, fall back to config default
+        if (is_null($this->title)) {
+            $this->title = config('laravel-share.services.bsky.text');
+        }
+
+        $base = config('laravel-share.services.bsky.uri');   // e.g. 'https://bsky.app/intent/compose?text='
+        // combine text and url just like Twitter/Reddit do
+        $shareBody = $this->title . ' ' . $this->url;
+        $url = $base . urlencode($shareBody);
+
+        $this->buildLink('bsky', $url);
+
+        return $this;
+    }
+
+
     /**
      * Get the raw generated links.
      *
@@ -282,3 +308,4 @@ class Share
         $this->generatedUrls[$provider] = $socialNetworkUrl;
     }
 }
+
