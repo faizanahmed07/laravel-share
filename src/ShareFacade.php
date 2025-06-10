@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Facade;
  * @method whatsapp()
  * @method linkedin(string $summary = '')
  * @method pinterest()
+ * @method bsky()
  * @method array getRawLinks()
  */
 class ShareFacade extends Facade
