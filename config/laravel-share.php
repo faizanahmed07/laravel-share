@@ -40,6 +40,10 @@ return [
             'uri' => 'https://telegram.me/share/url',
             'text' => 'Default share text',
         ],
+        'bsky' => [
+            'uri' => 'https://bsky.app/intent/compose?text=',
+            'text' => 'Default share text',
+        ],
     ],
 
     /*
